@@ -28,7 +28,6 @@ body {
     padding: 2rem;
 }
 
-/* Use bottom-cards style for team cards container */
 .bottom-cards {
     display: flex;
     flex-wrap: wrap;
@@ -37,17 +36,17 @@ body {
 }
 
 .team-card {
-    flex: 1 1 200px; /* responsive width */
+    flex: 1 1 200px;
     text-align: center;
     padding: 1rem;
     background: #15151E;
     border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .team-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(1,0,0,0.75);
+    box-shadow: var(--team-shadow, 0 10px 20px rgba(255,0,0,0.75)); /* Uses team color as shadow color, have red as a fall back color */
     cursor: pointer;
 }
 
