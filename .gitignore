@@ -1,2 +1,10 @@
 *.vsidx
 *.sqlite
+.vs/ProjectSettings.json
+.vs/VSWorkspaceState.json
+.vs/WebDev/CopilotIndices/17.12.38.29086/CodeChunks.db
+.vs/WebDev/CopilotIndices/17.12.38.29086/SemanticSymbols.db
+.vs/WebDev/CopilotIndices/17.12.38.29086/SemanticSymbols.db-shm
+.vs/WebDev/CopilotIndices/17.12.38.29086/SemanticSymbols.db-wal
+.vs/WebDev/v17/.wsuo
+.vs/WebDev/v17/DocumentLayout.json
