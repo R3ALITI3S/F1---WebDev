@@ -39,7 +39,7 @@ def seconds_to_str(seconds):
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("DataPage.html")
 
 # all APP.ROUTE is flask doing its job
 @app.route("/add_entry", methods=["POST"])
