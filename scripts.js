@@ -5,6 +5,10 @@ function goToDrivers() {
 function goToTeams() {
     window.location.href = "Teams.html";
 }
+
+function goToSchedule(){
+    window.location.href = "Schedule.html";
+}
 /*
 // Driver images
 const driverImages = [
