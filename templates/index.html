@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>F1 Results</title>
+
+    <style>
+        /* Page style */
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #111;
+            color: white;
+        }
+
+        /* Table layout */
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 60%;
+        }
+
+        /* Table cells th header, td table data */
+        th, td {
+            padding: 10px;
+            border: 1px solid #444;
+        }
+
+        /* Header styling i think red as the other colour? needs fix - TH table header*/
+        th {
+            background: #e10600;
+        }
+
+        /* Zebra, so not only black, this is  - TR table rows*/
+        tr:nth-child(even) {
+            background: #222;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- The actual page. -->
+<h1>🏁 F1 Race Results</h1>
+
+<!-- Create the table -->
+<table id="resultsTable">
+    <thead>
+        <tr>
+            <!-- headers -->
+            <th>Position</th>
+            <th>Driver</th>
+            <th>Team</th>
+        </tr>
+    </thead>
+
+
+<div style ="margin: 20px;">
+    <input type="number" id="seasonInput" placeholder="Season (eg. 2026)">
+    <input type="text" id="raceInput" placeholder="Race (eg. Monte Carlo)">
+    <button onclick="loadResults()">Search</button>
+</div>
+
+    <!-- Table body is filled by JavaScript -->
+    <tbody></tbody>
+</table>
+
+<script>
+function loadResults() {
+
+    const season = document.getElementById("seasonInput").value;
+    const race = document.getElementById("raceInput").value;
+
+    fetch(`/results?season=${season}&race=${race}`)
+        .then(res => res.json())
+        .then(data => {
+
+            const table = document.querySelector("#resultsTable tbody");
+            table.innerHTML = ""; // clear old results
+
+            data.forEach(driver => {
+                const row = document.createElement("tr");
+
+                row.innerHTML =
+                    "<td>" + driver.Position + "</td>" +
+                    "<td>" + driver.Abbreviation + "</td>" +
+                    "<td>" + driver.TeamName + "</td>";
+
+                table.appendChild(row);
+            });
+        })
+        .catch(err => console.error("Fetch error:", err));
+}
+</script>
+
+</body>
+</html>
