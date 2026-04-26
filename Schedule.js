@@ -1,15 +1,14 @@
 async function loadSchedule() {
     try {
         const res = await fetch("/api/schedule");
-
+        const data = await res.json();
         if (!res.ok) {
             throw new Error("Failed to fetch schedule");
         }
 
-        const data = await res.json();
         console.log("Schedule data:", data); // debug
 
-        const list = document.getElementById("schedule-list");
+        const list = document.getElementById("schedule");
         list.innerHTML = "";
 
         data.forEach(event => {
