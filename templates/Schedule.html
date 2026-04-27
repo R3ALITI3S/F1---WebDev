@@ -1,23 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F1 Schedule</title>
-
-    <!-- Your existing CSS -->
+    <title>F1 Calendar</title>
     <link rel="stylesheet" href="/static/Schedule.css">
-
-    <!-- Your existing JS -->
-    <script src="/static/Schedule.js"></script>
-
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-<header class="navbar">
+   <header class="navbar">
     <div class="logo">
         <a href="/homepage">F1 STATS!</a>
     </div>
@@ -26,25 +15,15 @@
         <a href="/data">New Race Session</a>
         <a href="/drivers">Drivers</a>
         <a href="/teams">Teams</a>
-        <a href="/schedule">Calendar</a>
+        <a href="/Calendar">Calendar</a>
     </nav>
 </header>
-<div class="container">
 
-    <!-- Sidebar (Schedule) -->
-    <aside id="sidebar">
-        <h2>Race Schedule</h2>
-        <ul id="schedule-list">
-            <!-- JS will fill this -->
-        </ul>
-    </aside>
+    <div class="container">
+        <h1>2026 Race Calendar</h1>
+        <div id="schedule-grid"></div>
+    </div>
 
-    <!-- Main content -->
-    <main class="main-content">
-        <h1>Welcome</h1>
-        <p>Select a race from the schedule.</p>
-    </main>
-
-</div>
+    <script src="/static/Schedule.js"></script>
 </body>
 </html>

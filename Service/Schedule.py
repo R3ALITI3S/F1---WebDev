@@ -26,44 +26,26 @@ COUNTRY_CODES = {
     "Abu Dhabi": "ae"
 }
 
-
-@schedule_bp.route("/schedule")
-def schedule_page():
-    return render_template("Schedule.html")
-
-
-@schedule_bp.route("/schedule/data")
-def schedule_api():
-    return jsonify(get_schedule())
-
-
 def get_schedule(year=None):
     if year is None:
         year = datetime.datetime.now().year
-
     schedule_df = fastf1.get_event_schedule(year)
-
     schedule = []
-
-    for _, row in schedule_df.iterrows():
+    for _, row in schedule_df[schedule_df["RoundNumber"] > 0].iterrows():
         schedule.append({
             "round": int(row["RoundNumber"]),
             "name": row["EventName"],
             "country": row["Country"],
             "country_code": COUNTRY_CODES.get(row["Country"], "un"),
             "location": row["Location"],
-            "date": row["EventDate"].strftime("%Y-%m-%d")
+            "date": row["EventDate"].strftime("%d %b %Y")
         })
-
     return schedule
 
+@schedule_bp.route("/")
+def schedule_page():
+    return render_template("Schedule.html")
 
-@schedule_bp.route("/race/<int:round_number>")
-def race_details(round_number):
-    schedule = get_schedule()
-    race = next((r for r in schedule if r["round"] == round_number), None)
-
-    if not race:
-        return "Race not found", 404
-
-    return render_template("RaceDetails.html", race=race)
+@schedule_bp.route("/data")
+def schedule_api():
+    return jsonify(get_schedule())

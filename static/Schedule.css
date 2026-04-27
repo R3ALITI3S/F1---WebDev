@@ -74,3 +74,33 @@ a {
   width: 90px;
   font-weight: bold;
 }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #ddd;
+    background: #15151E;
+}
+
+    .navbar .logo {
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    .navbar nav a {
+        margin-left: 1.5rem;
+        text-decoration: none;
+        color: #fff;
+    }
+
+.main-content {
+    padding: 2rem;
+    justify-content: center;
+}
+
+.top-section {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
