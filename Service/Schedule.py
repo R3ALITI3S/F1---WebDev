@@ -5,10 +5,12 @@ import datetime
 schedule_bp = Blueprint("schedule", __name__)
 
 COUNTRY_CODES = {
+    "Azerbaijan": "az",
     "Bahrain": "bh",
     "Saudi Arabia": "sa",
     "Australia": "au",
     "Japan": "jp",
+    "Canada": "ca",
     "China": "cn",
     "United States": "us",
     "United Kingdom": "gb",
