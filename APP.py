@@ -9,6 +9,7 @@ app.register_blueprint(schedule_bp, url_prefix="/schedule")
 app.register_blueprint(data_bp, url_prefix="/data")
 
 
+@app.route("/")
 @app.route("/homepage")
 def home():
     return render_template("homePage.html")
