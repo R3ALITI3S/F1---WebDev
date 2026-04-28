@@ -6,12 +6,12 @@ from flask import Blueprint, jsonify, render_template, request
 
 data_bp = Blueprint("data", __name__)
 
-os.makedirs("../cache", exist_ok=True)
-fastf1.Cache.enable_cache("../cache")
+os.makedirs("../../cache", exist_ok=True)
+fastf1.Cache.enable_cache("../../cache")
 
 
 def init_db():
-    conn = sqlite3.connect('../f1_custom.db')
+    conn = sqlite3.connect('../../f1_custom.db')
     cursor = conn.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS custom_results (
@@ -76,7 +76,7 @@ def add_entry():
         else:
             total_seconds = float(parts[0])
 
-        conn = sqlite3.connect('../f1_custom.db')
+        conn = sqlite3.connect('../../f1_custom.db')
         cursor = conn.cursor()
         cursor.execute("""
             INSERT INTO custom_results (season, race, name, team, lap_time_seconds, total_race_time)
@@ -93,7 +93,7 @@ def add_entry():
 @data_bp.route("/delete_entry", methods=["POST"])
 def delete_entry():
     entry_id = request.json.get('id')
-    conn = sqlite3.connect('../f1_custom.db')
+    conn = sqlite3.connect('../../f1_custom.db')
     cursor = conn.cursor()
     cursor.execute("DELETE FROM custom_results WHERE id = ?", (entry_id,))
     conn.commit()
@@ -166,7 +166,7 @@ def results():
         return jsonify({"error": f"F1 Error: {str(e)}"}), 500
 
     try:
-        conn = sqlite3.connect('../f1_custom.db')
+        conn = sqlite3.connect('../../f1_custom.db')
         cursor = conn.cursor()
         cursor.execute("""
             SELECT id, name, team, lap_time_seconds
