@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, render_template
+from flask import Blueprint, jsonify
 import fastf1
 import datetime
 
@@ -28,10 +28,14 @@ COUNTRY_CODES = {
     "Abu Dhabi": "ae"
 }
 
-def get_schedule(year=None):
+
+# INTERNAL FUNCTION (no route)
+def fetch_schedule(year=None):
     if year is None:
         year = datetime.datetime.now().year
+
     schedule_df = fastf1.get_event_schedule(year)
+
     schedule = []
     for _, row in schedule_df[schedule_df["RoundNumber"] > 0].iterrows():
         schedule.append({
@@ -42,12 +46,12 @@ def get_schedule(year=None):
             "location": row["Location"],
             "date": row["EventDate"].strftime("%d %b %Y")
         })
+
     return schedule
 
-@schedule_bp.route("/")
-def schedule_page():
-    return render_template("Schedule.html")
 
-@schedule_bp.route("/data")
+
+# API ENDPOINT (React uses this)
+@schedule_bp.route("/")
 def schedule_api():
-    return jsonify(get_schedule())
+    return jsonify(fetch_schedule())

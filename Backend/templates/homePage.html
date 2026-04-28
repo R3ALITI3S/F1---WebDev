@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F1 Stats</title>
 
-    <link rel="stylesheet" href="/static/driverstyle.css">
-    <script defer src="/static/scripts.js"></script>
+    <link rel="stylesheet" href="/Backend/staticstyle.css">
+    <script defer src="/Backend/statics.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -17,7 +17,7 @@
 
     <div class="logo">
         <a href="{{ url_for('home') }}">
-            <img src="/static/Img/F1.avif" alt="Driver">
+            <img src="/Backend/static.avif" alt="Driver">
         </a>
     </div>
 
@@ -35,7 +35,7 @@
     <section class="top-section">
 
         <div class="driver-card" onclick="location.href='/drivers'">
-            <img src="/static/Img/2026mclarenoscpia01right.avif" class="driver-image" alt="Driver">
+            <img src="/Backend/static26mclarenoscpia01right.avif" class="driver-image" alt="Driver">
             <h3>Drivers</h3>
             <p>Take a look at your favorite driver stats</p>
         </div>
@@ -50,19 +50,19 @@
     <section class="bottom-cards">
 
         <div class="card" onclick="goToTeams()">
-            <img src="/static/Img/2026mclarencarright.avif" class="card-img" alt="Teams">
+            <img src="/Backend/static26mclarencarright.avif" class="card-img" alt="Teams">
             <h4>Teams</h4>
             <p>Take a look at current team stats</p>
         </div>
 
         <div class="card" onclick="goToSchedule()">
-            <img src="/static/Img/Calendar.png" class="calendar-icon" alt="Schedule">
+            <img src="/Backend/staticlendar.png" class="calendar-icon" alt="Schedule">
             <h4>Schedule</h4>
             <p>F1 Schedule for upcoming events</p>
         </div>
 
         <div class="card" onclick="goToRace()">
-            <img src="/static/Img/WinnerHelmet.png" class="winner-helmet" alt="Standings">
+            <img src="/Backend/staticnnerHelmet.png" class="winner-helmet" alt="Standings">
             <h4>Standings & New Race session</h4>
             <p>See Race standings & Start a new race session! Compare your fastest lap times against real drivers</p>
         </div>
