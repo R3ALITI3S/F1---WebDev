@@ -1,17 +1,13 @@
-function goToDrivers() {
-    window.location.href = "drivers.html";
-}
-
 function goToTeams() {
-    window.location.href = "Teams.html";
+    window.location.href = "/drivers";
 }
 
 function goToSchedule(){
-    window.location.href = "/Calendar/";
+    window.location.href = "/Calendar";
 }
 
 function goToRace(){
-    window.location.href = "/";
+    window.location.href = "/data";
 }
 /*
 // Driver images
