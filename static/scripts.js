@@ -7,7 +7,11 @@ function goToTeams() {
 }
 
 function goToSchedule(){
-    window.location.href = "Schedule.html";
+    window.location.href = "/Calendar/";
+}
+
+function goToRace(){
+    window.location.href = "/";
 }
 /*
 // Driver images

@@ -54,8 +54,9 @@ async function searchSession() {
             return;
         }
 
-        // Build your table/list here
+        // Build table / list
         resultsDiv.innerHTML = JSON.stringify(data, null, 2);
+
     } catch (err) {
         console.error(err);
         resultsDiv.innerHTML = "Failed to connect to server.";
@@ -127,7 +128,7 @@ async function loadData() {
         console.log("DEBUG DATA:", data);
 
         // optional debug view
-        let debugBox = document.getElementById("debugBox");
+        // let debugBox = document.getElementById("debugBox");
 
         if (!debugBox) {
             debugBox = document.createElement("pre");

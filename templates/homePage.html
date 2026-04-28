@@ -6,6 +6,8 @@
     <title>F1 Stats</title>
 
     <link rel="stylesheet" href="/static/driverstyle.css">
+    <script defer src="/static/scripts.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
@@ -17,59 +19,48 @@
     </div>
 
     <nav>
-        <a href="/data">New Race Session</a>
+        <a href="/data">Standings & New Race session</a>
         <a href="/drivers">Drivers</a>
         <a href="/teams">Teams</a>
         <a href="/Calendar">Calendar</a>
     </nav>
 </header>
 
-            <section class="bottom-cards">
-                <div class="card" onclick="goToTeams()">
-                    <img id="car-image" src="../static/Img/2026mclarencarright.avif" alt="´Teams">
-                    <h4>Teams</h4>
-                    <p>Take a look at current team stats</p>
-                </div>
-                <div class="card" onclick="goToSchedule()">
-                    <img src="schedule.png" alt="Schedule">
-                    <h4>Schedule</h4>
-                    <p>F1 Schedule for upcoming events</p>
-                </div>
-                <div class="card">
-                    <img src="standings.png" alt="Standings">
-                    <h4>Standings</h4>
-                    <p>Current standings</p>
-                </div>
-            </section>
-        </main>
 <main class="main-content">
-
 
     <section class="top-section">
 
         <div class="driver-card" onclick="location.href='/drivers'">
-            <img src="/static/Img/2026mclarenoscpia01right.avif">
+            <img src="/static/Img/2026mclarenoscpia01right.avif" class="driver-image" alt="Driver">
             <h3>Drivers</h3>
             <p>Take a look at your favorite driver stats</p>
         </div>
 
         <div class="feature-card">
-            <h3>F1 Dashboard</h3>
-            <p>Live stats, results, and performance tracking</p>
+            <h2>F1 Dashboard</h2>
+            <p>Experience live Formula 1 action with their lap stats, race results, See the drivers fastest lap results and add your own!</p>
         </div>
 
     </section>
 
     <section class="bottom-cards">
 
-        <div class="card" onclick="location.href='/teams'">
-            <img src="/static/Img/2026mclarencarright.avif">
+        <div class="card" onclick="goToTeams()">
+            <img src="/static/Img/2026mclarencarright.avif" class="card-img" alt="Teams">
             <h4>Teams</h4>
+            <p>Take a look at current team stats</p>
         </div>
 
-        <div class="card" onclick="location.href='/data'">
-            <h4>Race Session</h4>
-            <p>Enter or view race results</p>
+        <div class="card" onclick="goToSchedule()">
+            <img src="/static/Img/Calendar.png" class="calendar-icon" alt="Schedule">
+            <h4>Schedule</h4>
+            <p>F1 Schedule for upcoming events</p>
+        </div>
+
+        <div class="card" onclick="goToRace()">
+            <img src="/static/Img/WinnerHelmet.png" class="winner-helmet" alt="Standings">
+            <h4>Standings & New Race session</h4>
+            <p>See Race standings & Start a new race session! Compare your fastest lap times against real drivers</p>
         </div>
 
     </section>
