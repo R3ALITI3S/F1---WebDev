@@ -1,0 +1,111 @@
+/* Shared */
+body {
+  font-family: 'Orbitron', sans-serif;
+    margin: 20px;
+    background: #15151E;
+    color: white;
+}
+
+a {
+  text-decoration: none;
+  color: #c40000;
+  font-weight: bold;
+}
+
+/* ---- Grid + cards ---- */
+
+#schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.race-card {
+  padding: 14px;
+  border-radius: 10px;
+  background-color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.race-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 12px rgba(255, 0, 0, 0.75);
+}
+
+.flag {
+  width: 40px;
+  margin-bottom: 8px;
+}
+
+.race-name {
+  font-weight: bold;
+  color: white
+}
+
+.race-location,
+.race-date {
+  font-size: 14px;
+  color: white;
+}
+
+/* ---- Race details page ---- */
+
+.race-details {
+  max-width: 420px;
+  padding: 24px;
+  margin-top: 20px;
+  border-radius: 12px;
+  background-color: #15151E;
+}
+
+.flag-large {
+  width: 80px;
+  margin-bottom: 12px;
+}
+
+.details-row {
+  display: flex;
+  margin: 8px 0;
+}
+
+.label {
+  width: 90px;
+  font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #ddd;
+    background: #15151E;
+}
+
+    .navbar .logo {
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    .navbar .logo img {
+    height: 1.5em;     /* match text size */
+    width: auto;
+    }
+
+    .navbar nav a {
+        margin-left: 1.5rem;
+        text-decoration: none;
+        color: #fff;
+    }
+
+.main-content {
+    padding: 2rem;
+    justify-content: center;
+}
+
+.top-section {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}

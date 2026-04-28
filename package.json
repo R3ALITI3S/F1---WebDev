@@ -1,0 +1,24 @@
+{
+  "name": "f1---webdev",
+  "version": "1.0.0",
+  "description": "Create a Web page - this project uses HTML, Css, Python, flask, jsonify to create a f1 statistical website with possibility to enter your own data",
+  "main": "Form.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/R3ALITI3S/F1---WebDev.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/R3ALITI3S/F1---WebDev/issues"
+  },
+  "homepage": "https://github.com/R3ALITI3S/F1---WebDev#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

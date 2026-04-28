@@ -1,6 +1,6 @@
 from flask import Flask, render_template
-from Service.Schedule import schedule_bp
-from Service.f1Data import data_bp
+from Blueprints.Schedule import schedule_bp
+from Blueprints.f1Data import data_bp
 
 app = Flask(__name__)
 

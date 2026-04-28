@@ -3,7 +3,7 @@ const path = require('path');
 
 const app = express();
 
-// Serve static files (HTML, CSS, JS, images)
+// Serve public files (HTML, CSS, JS, images)
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(3000, () => {
