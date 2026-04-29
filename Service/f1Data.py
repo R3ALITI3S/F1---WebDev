@@ -6,12 +6,18 @@ from flask import Blueprint, jsonify, render_template, request
 
 data_bp = Blueprint("data", __name__)
 
-os.makedirs("../cache", exist_ok=True)
-fastf1.Cache.enable_cache("../cache")
+# ✅ BASE DIRECTORY (same folder as this file)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, "f1_custom.db")
+CACHE_PATH = os.path.join(BASE_DIR, "cache")
+
+# cache stays inside folder too
+os.makedirs(CACHE_PATH, exist_ok=True)
+fastf1.Cache.enable_cache(CACHE_PATH)
 
 
 def init_db():
-    conn = sqlite3.connect('../f1_custom.db')
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS custom_results (
@@ -54,38 +60,40 @@ def add_entry():
     data = request.json
     try:
         raw_time = data['time'].replace(',', '.')
-
-
         parts = raw_time.split(':')
 
         if len(parts) == 3:
             hours = float(parts[0])
             minutes = float(parts[1])
             seconds = float(parts[2])
-
             total_seconds = hours * 3600 + minutes * 60 + seconds
-
 
         elif len(parts) == 2:
             minutes = float(parts[0])
             seconds = float(parts[1])
-
             total_seconds = minutes * 60 + seconds
-
 
         else:
             total_seconds = float(parts[0])
 
-        conn = sqlite3.connect('../f1_custom.db')
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         cursor.execute("""
             INSERT INTO custom_results (season, race, name, team, lap_time_seconds, total_race_time)
             VALUES (?, ?, ?, ?, ?, ?)
-        """, (data['season'], data['race'], data['name'], data['team'], total_seconds, data['time']))
+        """, (
+            data['season'],
+            data['race'],
+            data['name'],
+            data['team'],
+            total_seconds,
+            data['time']
+        ))
         conn.commit()
         conn.close()
 
         return jsonify({"status": "success"})
+
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
@@ -93,7 +101,7 @@ def add_entry():
 @data_bp.route("/delete_entry", methods=["POST"])
 def delete_entry():
     entry_id = request.json.get('id')
-    conn = sqlite3.connect('../f1_custom.db')
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute("DELETE FROM custom_results WHERE id = ?", (entry_id,))
     conn.commit()
@@ -166,7 +174,7 @@ def results():
         return jsonify({"error": f"F1 Error: {str(e)}"}), 500
 
     try:
-        conn = sqlite3.connect('../f1_custom.db')
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         cursor.execute("""
             SELECT id, name, team, lap_time_seconds
@@ -197,7 +205,6 @@ def results():
         return jsonify({"error": f"DB Error: {str(e)}"}), 500
 
 
-   
     combined = official_drivers + user_entries
 
     final_combined = sorted(
@@ -232,7 +239,6 @@ def results():
             "Time": display_time,
             "Gap": gap_str
         })
-
 
     combined_fastest.sort(key=lambda x: x['Seconds'])
     best_lap = combined_fastest[0]['Seconds'] if combined_fastest else 0
