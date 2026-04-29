@@ -26,7 +26,7 @@ async function loadSchedule() {
             `;
 
             // Click to go to details zz made i thinks? a newer version
-            card.onclick = () => window.location.href = `/Calendar/race/${event.round}`;
+            // card.onclick = () => window.location.href = `/Calendar/race/${event.round}`;
             list.appendChild(card);
         });
 
