@@ -8,3 +8,6 @@
 .vs/WebDev/CopilotIndices/17.12.38.29086/SemanticSymbols.db-wal
 .vs/WebDev/v17/.wsuo
 .vs/WebDev/v17/DocumentLayout.json
+Service/cache/2026/2026-03-08_Australian_Grand_Prix/2026-03-08_Race/timing_app_data.ff1pkl
+Service/cache/2026/2026-03-08_Australian_Grand_Prix/2026-03-08_Race/_extended_timing_data.ff1pkl
+Service/__pycache__/f1Data.cpython-312.pyc
