@@ -135,44 +135,55 @@ th {
 }
 
 
-body.light-mode .theme-btn {
+body.light-mode .theme-btn,
+html.light-mode .theme-btn {
     box-shadow: 0 4px 10px rgba(225, 6, 0, 0.3);
 }
 
 /* LIGHT MODE OVERRIDES!!! */
-body.light-mode {
+body.light-mode,
+html.light-mode body {
     background: #ffffff;
     color: #15151E;
 }
 
-.light-mode .input-section,
-.light-mode .search-bar {
+body.light-mode .input-section,
+body.light-mode .search-bar,
+html.light-mode .input-section,
+html.light-mode .search-bar {
     background: #f1f1f1;
     border: 1px solid #ddd;
 }
 
-.light-mode input,
-.light-mode select {
+body.light-mode input,
+body.light-mode select,
+html.light-mode input,
+html.light-mode select {
     background: #ffffff;
     color: #15151E;
     border: 1px solid #ccc;
 }
 
-.light-mode table {
+body.light-mode table,
+html.light-mode table {
     background: #ffffff;
     color: #15151E;
 }
 
-.light-mode th,
-.light-mode td {
+body.light-mode th,
+body.light-mode td,
+html.light-mode th,
+html.light-mode td {
     border: 1px solid #ddd;
 }
 
-.light-mode .user-row {
+body.light-mode .user-row,
+html.light-mode .user-row {
     background: #e3f2fd !important; /* Soft blue for user row in light mode */
     color: #007bff;
 }
 
-.light-mode .section-title {
+body.light-mode .section-title,
+html.light-mode .section-title {
     color: #15151E;
 }

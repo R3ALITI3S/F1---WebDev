@@ -156,37 +156,47 @@ footer {
 }
 
 
-body.light-mode .theme-btn {
+body.light-mode .theme-btn,
+html.light-mode .theme-btn {
     box-shadow: 0 4px 10px rgba(225, 6, 0, 0.3);
 }
 
 /* This class will be added/removed by the button */
-body.light-mode {
+body.light-mode,
+html.light-mode body {
     background-color: #ffffff;
     color: #15151e;
 }
 
-.light-mode .navbar,
-.light-mode footer {
+body.light-mode .navbar,
+body.light-mode footer,
+html.light-mode .navbar,
+html.light-mode footer {
     background-color: #f8f8f8;
     border-bottom: 1px solid #ddd;
     color: #15151e;
 }
 
-.light-mode .navbar nav a {
+body.light-mode .navbar nav a,
+html.light-mode .navbar nav a {
     color: #15151e;
 }
 
-.light-mode .card,
-.light-mode .feature-card,
-.light-mode .driver-card {
+body.light-mode .card,
+body.light-mode .feature-card,
+body.light-mode .driver-card,
+html.light-mode .card,
+html.light-mode .feature-card,
+html.light-mode .driver-card {
     background-color: #f1f1f1;
     color: #15151e;
     border: 1px solid #ccc;
 }
 
 /* Red hover glow looks better on light mode with lower opacity */
-.light-mode .card:hover,
-.light-mode .driver-card:hover {
+body.light-mode .card:hover,
+body.light-mode .driver-card:hover,
+html.light-mode .card:hover,
+html.light-mode .driver-card:hover {
     box-shadow: 0 10px 20px rgba(225, 6, 0, 0.3);
 }

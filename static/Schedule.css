@@ -112,30 +112,39 @@ a {
 
 /* toggle */
 /* LIGHT MODE OVERRIDES */
-body.light-mode {
+body.light-mode,
+html.light-mode body {
     background: #ffffff;
     color: #15151E;
 }
 
-.light-mode .navbar,
-.light-mode .race-details {
+body.light-mode .navbar,
+body.light-mode .race-details,
+html.light-mode .navbar,
+html.light-mode .race-details {
     background: #f8f8f8;
     border-bottom: 1px solid #ddd;
 }
 
-.light-mode .navbar nav a,
-.light-mode .race-name,
-.light-mode .race-location,
-.light-mode .race-date {
+body.light-mode .navbar nav a,
+body.light-mode .race-name,
+body.light-mode .race-location,
+body.light-mode .race-date,
+html.light-mode .navbar nav a,
+html.light-mode .race-name,
+html.light-mode .race-location,
+html.light-mode .race-date {
     color: #15151E;
 }
 
-.light-mode .race-card {
+body.light-mode .race-card,
+html.light-mode .race-card {
     background-color: #f1f1f1;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.light-mode .race-card:hover {
+body.light-mode .race-card:hover,
+html.light-mode .race-card:hover {
     box-shadow: 0 6px 15px rgba(225, 6, 0, 0.2);
 }
 
@@ -162,6 +171,7 @@ body.light-mode {
 }
 
 
-body.light-mode .theme-btn {
+body.light-mode .theme-btn,
+html.light-mode .theme-btn {
     box-shadow: 0 4px 10px rgba(225, 6, 0, 0.3);
 }

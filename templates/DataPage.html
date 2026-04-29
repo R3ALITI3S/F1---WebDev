@@ -6,10 +6,18 @@
     <title>F1 Leaderboard</title>
     <link rel="stylesheet" href="/static/DataStyle.css">
     <script defer src="/static/scripts.js"></script>
+    <script>
+        if (localStorage.getItem("theme") === "light") {
+            document.documentElement.classList.add("light-mode");
+        }
+    </script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script defer src="/static/theme-toggle.js"></script>
 </head>
 
 
-<body>
+<body class="dark-mode">
 <header class="navbar">
     <div class="logo">
         <a href="{{ url_for('home') }}">
@@ -20,9 +28,7 @@
         <a href="/data">Standings</a>
         <a href="/drivers">Drivers</a>
         <a href="/Calendar">Calendar</a>
-        <button class="theme-btn" onclick="toggleTheme()">
-        TOGGLE THEME
-    </button>
+        <div id="theme-toggle-root"></div>
     </nav>
 </header>
 

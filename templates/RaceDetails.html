@@ -3,19 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>{{ race.name if race else "Race" }}</title>
-
   <link rel="stylesheet" href="{{ url_for('static', filename='Schedule.css') }}">
+  <script>
+      if (localStorage.getItem("theme") === "light") {
+          document.documentElement.classList.add("light-mode");
+      }
+  </script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script defer src="{{ url_for('static', filename='theme-toggle.js') }}"></script>
 </head>
 
-<body>
-
-
-  <a href="{{ url_for('schedule_page') }}">← Back to schedule</a>
+<body class="dark-mode">
+  <div class="navbar">
+    <a href="{{ url_for('schedule_page') }}">Back to schedule</a>
+    <div id="theme-toggle-root"></div>
+  </div>
 
   {% if race %}
-
   <div class="race-details">
-
     <img
       class="flag-large"
       src="https://flagcdn.com/w80/{{ race.country_code }}.png"
@@ -43,12 +49,9 @@
       <span class="label">Date:</span>
       <span>{{ race.date }}</span>
     </div>
-
   </div>
-
   {% else %}
     <h2>Race not found</h2>
   {% endif %}
-
 </body>
 </html>

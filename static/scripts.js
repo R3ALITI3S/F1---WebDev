@@ -9,22 +9,6 @@ function goToSchedule(){
 function goToRace(){
     window.location.href = "/data";
 }
-
-function toggleTheme() {
-    // Toggles the 'light-mode' class on the body
-    document.body.classList.toggle('light-mode');
-
-    // Optional: Save preference to local storage so it stays on page refresh
-    const isLight = document.body.classList.contains('light-mode');
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-}
-
-// Check for saved theme on page load
-window.onload = () => {
-    if (localStorage.getItem('theme') === 'light') {
-        document.body.classList.add('light-mode');
-    }
-};
 /*
 // Driver images
 const driverImages = [

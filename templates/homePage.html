@@ -8,11 +8,27 @@
     <link rel="stylesheet" href="/static/driverstyle.css">
     <script defer src="/static/scripts.js"></script>
 
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script> <!--Gives me react-->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script> <!--connects react to webpage-->
+
+    <!-- Add the compiler Babel - the translator from jsx to browser understand -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- the script!  -->
+    <script type="text/babel" src="/static/theme-toggle.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        if (localStorage.getItem("theme") === "light") {
+            document.documentElement.classList.add("light-mode");
+        }
+    </script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script defer src="/static/theme-toggle.js"></script>
 </head>
 
-<body>
+<body class="dark-mode">
 
 <header class="navbar">
     <div class="logo">
@@ -24,9 +40,9 @@
         <a href="/data">Standings</a>
         <a href="/drivers">Drivers</a>
         <a href="/Calendar">Calendar</a>
-        <button class="theme-btn" onclick="toggleTheme()">
-        TOGGLE THEME
-    </button>
+
+        <div id="theme-toggle-root"></div>
+
     </nav>
 </header>
 
