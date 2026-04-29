@@ -5,27 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F1 Stats</title>
     <link rel="stylesheet" href="../static/driverstyle.css">
-    <script defer src="script.js"></script>
+    <script defer src="/static/scripts.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet"> <!-- This is needed for the font </-->
 </head>
 <body>
-
-    <header class="navbar">
-
+<header class="navbar">
     <div class="logo">
         <a href="{{ url_for('home') }}">
             <img src="/static/Img/F1.avif" alt="Driver">
         </a>
     </div>
-
-
     <nav>
-        <a href="/data">New Race Session</a>
+        <a href="/data">Standings</a>
         <a href="/drivers">Drivers</a>
-        <a href="/teams">Teams</a>
-        <a href="/schedule">Calendar</a>
+        <a href="/Calendar">Calendar</a>
+        <button class="theme-btn" onclick="toggleTheme()">
+        TOGGLE THEME
+    </button>
     </nav>
-    </header>
+</header>
 
     <main class="main-content">
     <!-- McLaren -->
